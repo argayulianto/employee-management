@@ -1,0 +1,141 @@
+.spacer-blue {
+    height: 17em;
+    background-color: #bae8f8;
+}
+
+.cover-main {
+    margin-top: -8em;
+    background-color: white;
+    border-radius: 3em 3em 0 0;
+}
+
+.title-page h1 {
+    font-size: 1.2em;
+}
+
+.title-page .row {
+    margin-top: -2.5em;
+}
+
+.title-page .row mat-card {
+    border-radius: 1.6em;
+    background-color: #00a8e8;
+}
+
+.title-page .row mat-card h1 {
+    color: white;
+    font-weight: bold;
+}
+
+.add-button button {
+    background-color: #4ad66d;
+}
+
+/* table */
+.search {
+    margin-top: 1.4em;
+}
+
+mat-form-field {
+    width: 100%;
+}
+
+::ng-deep .mat-focused .mat-form-field-label {
+    color: #00a8e8 !important;
+}
+
+::ng-deep .mat-input-element {
+    caret-color: #00a8e8;
+}
+
+.mat-focused .mat-icon {
+    color: #00a8e8;
+}
+
+::ng-deep .mat-form-field-ripple {
+    background-color: #00a8e8 !important;
+}
+
+.show-overflow {
+    overflow-x: scroll;
+}
+
+table {
+    width: 100%;
+    min-width: 68em;
+}
+
+.mat-header-cell {
+    font-weight: bold;
+    padding-right: .7em;
+}
+
+.mat-cell {
+    font-size: 1em;
+    padding-right: .7em;
+}
+
+.action-button button:nth-child(1) {
+    color: #fcf45d;
+}
+
+.action-button button:nth-child(2) {
+    color: #ff686b;
+}
+
+.action-button button:nth-child(3) {
+    
+    color: #7371fc;
+}
+
+.no-data {
+    color: #a9a9a9;
+}
+
+/* Small devices (landscape phones, 576px and up) */
+@media (min-width: 576px) {
+    .cover-main {
+        border-radius: 4em 4em 0 0;
+    }
+}
+
+/* Medium devices (tablets, 768px and up) */
+@media (min-width: 768px) {
+    .spacer-blue {
+        height: 19em;
+    }
+    .cover-main {
+        border-radius: 4em 4em 0 0;
+    }
+    .search {
+        margin-top: 0;
+    }
+}
+
+/* Large devices (desktops, 992px and up) */
+@media (min-width: 992px) {
+    .spacer-blue {
+        height: 18em;
+    }
+    .cover-main {
+        border-radius: 5em 5em 0 0;
+    }
+    .title-page h1 {
+        font-size: 1.5em;
+    }
+}
+
+/* X-Large devices (large desktops, 1200px and up) */
+@media (min-width: 1200px) {
+    .spacer-blue {
+        height: 20em;
+    }
+    .cover-main {
+        border-radius: 6em 6em 0 0;
+    }
+}
+
+/* XX-Large devices (larger desktops, 1400px and up) */
+@media (min-width: 1400px) {
+
+}

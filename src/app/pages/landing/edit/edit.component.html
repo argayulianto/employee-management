@@ -1,0 +1,139 @@
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-12 spacer-blue"></div>
+        <div class="col-12 cover-main">
+            <div class="container">
+                <div class="row">
+                    <div class="col-12 text-center title-page">
+                        <div class="row justify-content-center">
+                            <div class="col-10 col-sm-8 col-md-6 col-lg-4">
+                                <mat-card>
+                                    <h1>Edit Employee</h1>
+                                </mat-card>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-12 mt-5">
+                        <div class="row justify-content-center">
+                            <div class="col-12 col-sm-10 col-md-8 col-lg-6 col-xl-5">
+                                <div class="row mb-5">
+                                    <mat-card>
+                                        <form [formGroup]="form" (ngSubmit)="onSubmit()">
+                                            <div class="col-12">
+                                                <mat-form-field appearance="outline">
+                                                    <mat-label>Username</mat-label>
+                                                    <input type="text" matInput formControlName="username" autocomplete="off">
+                                                    <mat-error *ngIf="form.controls.username.hasError('required')">
+                                                      Username is <strong>required</strong>
+                                                    </mat-error>
+                                                </mat-form-field>
+                                            </div>
+                                            <div class="col-12">
+                                                <mat-form-field appearance="outline">
+                                                    <mat-label>First Name</mat-label>
+                                                    <input type="text" matInput formControlName="firstName" autocomplete="off">
+                                                    <mat-error *ngIf="form.controls.firstName.hasError('required')">
+                                                      First Name is <strong>required</strong>
+                                                    </mat-error>
+                                                </mat-form-field>
+                                            </div>
+                                            <div class="col-12">
+                                                <mat-form-field appearance="outline">
+                                                    <mat-label>Last Name</mat-label>
+                                                    <input type="text" matInput formControlName="lastName" autocomplete="off">
+                                                    <mat-error *ngIf="form.controls.lastName.hasError('required')">
+                                                      Last Name is <strong>required</strong>
+                                                    </mat-error>
+                                                </mat-form-field>
+                                            </div>
+                                            <div class="col-12">
+                                                <mat-form-field appearance="outline">
+                                                    <mat-label>Email</mat-label>
+                                                    <input type="text" matInput formControlName="email" autocomplete="off">
+                                                    <mat-error *ngIf="form.controls.email.hasError('required')">
+                                                      Email is <strong>required</strong>
+                                                    </mat-error>
+                                                    <mat-error *ngIf="form.controls.email.hasError('email')">
+                                                      Must be valid <strong>email</strong>
+                                                    </mat-error>
+                                                </mat-form-field>
+                                            </div>
+                                            <div class="col-12">
+                                                <mat-form-field appearance="outline">
+                                                    <mat-label>Birth Date</mat-label>
+                                                    <input [max]="maxDate" matInput [matDatepicker]="picker" formControlName="birthDate" (dateInput)="birthDateEvent('input', $event)">
+                                                    <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+                                                    <mat-datepicker #picker></mat-datepicker>
+                                                    <mat-error *ngIf="form.controls.birthDate.hasError('required')">
+                                                        Birth Date is <strong>required</strong>
+                                                      </mat-error>
+                                                </mat-form-field>
+                                            </div>
+                                            <div class="col-12">
+                                                <mat-form-field appearance="outline">
+                                                    <mat-label>Basic Salary</mat-label>
+                                                    <input type="text" matInput formControlName="basicSalary" autocomplete="off">
+                                                    <mat-error *ngIf="form.controls.basicSalary.hasError('required')">
+                                                        Basic Salary is <strong>required</strong>
+                                                    </mat-error>
+                                                    <mat-error *ngIf="form.controls.basicSalary.hasError('pattern')">
+                                                      Input <strong>number</strong> only
+                                                    </mat-error>
+                                                </mat-form-field>
+                                            </div>
+                                            <div class="col-12">
+                                                <mat-form-field appearance="outline">
+                                                    <mat-label>Status</mat-label>
+                                                    <input type="text" matInput formControlName="status" autocomplete="off">
+                                                    <mat-error *ngIf="form.controls.status.hasError('required')">
+                                                      Status is <strong>required</strong>
+                                                    </mat-error>
+                                                </mat-form-field>
+                                            </div>
+                                            <div class="col-12">
+                                                <mat-form-field appearance="outline">
+                                                    <mat-label>Group</mat-label>
+                                                    <mat-select formControlName="group">
+                                                        <mat-select-filter [array]="listGroup" [displayMember]="'view'" (filteredReturn)="filteredGroup =$event"></mat-select-filter>
+                                                        <mat-option *ngFor="let item of filteredGroup" [value]="item.value">
+                                                            {{item.view}}
+                                                        </mat-option>
+                                                    </mat-select>
+                                                    <mat-error *ngIf="form.controls.group.hasError('required')">
+                                                        Group is <strong>required</strong>
+                                                      </mat-error>
+                                                </mat-form-field>
+                                            </div>
+                                            <div class="col-12">
+                                                <mat-form-field appearance="outline">
+                                                    <mat-label>Description</mat-label>
+                                                    <input [max]="maxDate" matInput [matDatepicker]="picker2" formControlName="description" (dateInput)="descriptionEvent('input', $event)">
+                                                    <mat-datepicker-toggle matSuffix [for]="picker2"></mat-datepicker-toggle>
+                                                    <mat-datepicker #picker2></mat-datepicker>
+                                                    <mat-error *ngIf="form.controls.description.hasError('required')">
+                                                        Description is <strong>required</strong>
+                                                      </mat-error>
+                                                </mat-form-field>
+                                            </div>
+                                            <div class="col-12 text-end mt-3 foot-button">
+                                                <button mat-raised-button type="button" (click)="cancelClicked()" color="primary">Cancel</button>
+                                                <button mat-raised-button type="submit" color="primary">Save</button>
+                                            </div>
+                                        </form>
+                                    </mat-card>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<ngx-spinner 
+  bdColor = "rgba(255,255,255,.4)" 
+  size = "default" 
+  color = "#00a8e8" 
+  type = "ball-newton-cradle" 
+  [fullScreen] = "true">
+</ngx-spinner>

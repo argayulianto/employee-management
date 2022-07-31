@@ -1,0 +1,96 @@
+<mat-toolbar>
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-3 col-sm-2">
+                <h1><span>Great</span>Employee</h1>
+            </div>
+            <div class="col-9 col-sm-10">
+                <div class="row justify-content-end">
+                    <div class="col-2 col-sm-2 col-md-1">
+                        <button mat-icon-button [matMenuTriggerFor]="menu" aria-label="Example icon-button with a menu">
+                            <mat-icon>more_vert</mat-icon>
+                        </button>
+                        <mat-menu #menu="matMenu">
+                            <button mat-menu-item>
+                                <mat-icon>person</mat-icon>
+                                <span>{{userProfil.firstName}}</span>
+                            </button>
+                            <button mat-menu-item (click)="onClickProfil(template)">
+                                <mat-icon>tune</mat-icon>
+                                <span>Profil</span>
+                            </button>
+                            <button mat-menu-item (click)="onClickLogout()">
+                                <mat-icon>logout</mat-icon>
+                                <span>Logout</span>
+                            </button>
+                        </mat-menu>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</mat-toolbar>
+<router-outlet></router-outlet>
+
+<!-- ngx-bootstrap profil modal -->
+<ng-template #template>
+    <div class="modal-header">
+        <div class="container">
+            <div class="row">
+                <div class="col-6">
+                    <h3 class="modal-title">Profil</h3>
+                </div>
+                <div class="col-6 text-end">
+                    <button type="button" class="btn-close close pull-right" aria-label="Close" (click)="modalRef?.hide()">
+                        <span aria-hidden="true" class="visually-hidden">&times;</span>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="modal-body">
+        <div class="container">
+            <div class="row">
+                <div class="col-6">
+                    <div class="row">
+                        <div class="col-12 mb-3">
+                            <div class="row">
+                                <div class="col-5">
+                                    <span class="span-bold">First Name</span>
+                                </div>
+                                <div class="col-7">
+                                    <span>{{userProfil?.firstName}}</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-12">
+                            <div class="row">
+                                <div class="col-5">
+                                    <span class="span-bold">Last Name</span>
+                                </div>
+                                <div class="col-7">
+                                    <span>{{userProfil?.lastName}}</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-6">
+                    <div class="row">
+                        <div class="col-12 mb-3">
+                            <div class="row">
+                                <div class="col-5">
+                                    <span class="span-bold">Status</span>
+                                </div>
+                                <div class="col-7">
+                                    <span>{{userProfil?.status}}</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</ng-template>  
+  

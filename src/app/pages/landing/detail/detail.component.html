@@ -1,0 +1,109 @@
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-12 spacer-blue"></div>
+        <div class="col-12 cover-main">
+            <div class="container">
+                <div class="row">
+                    <div class="col-12 text-center title-page">
+                        <div class="row justify-content-center">
+                            <div class="col-10 col-sm-8 col-md-6 col-lg-4">
+                                <mat-card>
+                                    <h1>Detail Employee</h1>
+                                </mat-card>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-12 mt-5">
+                        <div class="row justify-content-center">
+                            <div class="col-12 col-md-8 col-lg-6">
+                                <div class="row mb-5">
+                                    <mat-card>
+                                        <mat-list>
+                                            <div class="col-12">
+                                                <div class="row">
+                                                    <div class="col-6">
+                                                        <mat-list-item><strong>Username</strong></mat-list-item>
+                                                    </div>
+                                                    <div class="col-6">
+                                                        <mat-list-item>{{employee?.username}}</mat-list-item>
+                                                    </div>
+                                                </div>
+                                                <div class="row">
+                                                    <div class="col-6">
+                                                        <mat-list-item><strong>First Name</strong></mat-list-item>
+                                                    </div>
+                                                    <div class="col-6">
+                                                        <mat-list-item>{{employee?.firstName}}</mat-list-item>
+                                                    </div>
+                                                </div>
+                                                <div class="row">
+                                                    <div class="col-6">
+                                                        <mat-list-item><strong>Last Name</strong></mat-list-item>
+                                                    </div>
+                                                    <div class="col-6">
+                                                        <mat-list-item>{{employee?.lastName}}</mat-list-item>
+                                                    </div>
+                                                </div>
+                                                <div class="row">
+                                                    <div class="col-6">
+                                                        <mat-list-item><strong>Email</strong></mat-list-item>
+                                                    </div>
+                                                    <div class="col-6">
+                                                        <mat-list-item>{{employee?.email}}</mat-list-item>
+                                                    </div>
+                                                </div>
+                                                <div class="row">
+                                                    <div class="col-6">
+                                                        <mat-list-item><strong>Birth Date</strong></mat-list-item>
+                                                    </div>
+                                                    <div class="col-6">
+                                                        <mat-list-item>{{employee?.birthDate | date:'dd-MMM-yyyy'}}</mat-list-item>
+                                                    </div>
+                                                </div>
+                                                <div class="row">
+                                                    <div class="col-6">
+                                                        <mat-list-item><strong>Basic salary</strong></mat-list-item>
+                                                    </div>
+                                                    <div class="col-6">
+                                                        <mat-list-item>Rp. {{employee?.basicSalary | number}}</mat-list-item>
+                                                    </div>
+                                                </div>
+                                                <div class="row">
+                                                    <div class="col-6">
+                                                        <mat-list-item><strong>Status</strong></mat-list-item>
+                                                    </div>
+                                                    <div class="col-6">
+                                                        <mat-list-item>{{employee?.status}}</mat-list-item>
+                                                    </div>
+                                                </div>
+                                                <div class="row">
+                                                    <div class="col-6">
+                                                        <mat-list-item><strong>Group</strong></mat-list-item>
+                                                    </div>
+                                                    <div class="col-6">
+                                                        <mat-list-item>{{employee?.group}}</mat-list-item>
+                                                    </div>
+                                                </div>
+                                                <div class="row">
+                                                    <div class="col-6">
+                                                        <mat-list-item><strong>Description</strong></mat-list-item>
+                                                    </div>
+                                                    <div class="col-6">
+                                                        <mat-list-item>{{employee?.description | date:'dd-MMM-yyyy'}}</mat-list-item>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="col-12 text-center mt-3">
+                                                <button mat-raised-button type="button" (click)="goBack()" color="primary">Ok</button>
+                                            </div>
+                                        </mat-list>
+                                    </mat-card>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
