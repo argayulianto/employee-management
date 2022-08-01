@@ -2,7 +2,6 @@ import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { MatDatepickerInputEvent } from '@angular/material/datepicker';
 import { Router } from '@angular/router';
-import { GroupList } from 'src/app/consts/group-list';
 import { authorized, credential } from 'src/app/lib';
 import { ToggleLoading } from 'src/app/shared/loading/toggle-loading';
 import { Employee } from 'src/app/shared/model/employee';
@@ -47,9 +46,22 @@ export class AddComponent implements OnInit {
         description: ['', Validators.required]
       },
     );
-    this.listGroup = GroupList;
-    this.filteredGroup = this.listGroup;
     
+    this.getListGroup();
+    
+  }
+
+  getListGroup() {
+    let listGrp = this.employee.map(e => e.group);
+    listGrp.forEach(a => {
+      this.listGroup.push(
+        {
+          value : a,
+          view: a
+        }
+      )
+    })
+    this.filteredGroup = this.listGroup;
   }
 
 

@@ -2,7 +2,6 @@ import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { MatDatepickerInputEvent } from '@angular/material/datepicker';
 import { ActivatedRoute, Router } from '@angular/router';
-import { GroupList } from 'src/app/consts/group-list';
 import { authorized, credential } from 'src/app/lib';
 import { ToggleLoading } from 'src/app/shared/loading/toggle-loading';
 import { Employee } from 'src/app/shared/model/employee';
@@ -39,7 +38,7 @@ export class EditComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    
+
     this.form = this.formBuilder.group(
       {
         username: ['', Validators.required],
@@ -54,8 +53,7 @@ export class EditComponent implements OnInit {
       },
     );
 
-    this.listGroup = GroupList;
-    this.filteredGroup = this.listGroup;
+    this.getListGroup();
 
     let control: any = this.form.controls;
     this.getIndex = this.employeeList.findIndex((e => e.username === this.username));
@@ -71,6 +69,19 @@ export class EditComponent implements OnInit {
     control.group.setValue(this.employee.group);
     control.description.setValue(this.employee.description);
     
+  }
+
+  getListGroup() {
+    let listGrp = this.employeeList.map(e => e.group);
+    listGrp.forEach(a => {
+      this.listGroup.push(
+        {
+          value : a,
+          view: a
+        }
+      )
+    })
+    this.filteredGroup = this.listGroup;
   }
 
   birthDateEvent(type: string, event: MatDatepickerInputEvent<Date>) {
