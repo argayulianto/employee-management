@@ -28,10 +28,8 @@
 }
 
 ::ng-deep .mat-list-item {
+    word-break: break-all;
     min-height: 1.5em;
-}
-
-::ng-deep .mat-list-item {
     margin-bottom: 1em;
 }
 

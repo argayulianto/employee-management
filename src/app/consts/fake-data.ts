@@ -9,7 +9,7 @@ export function createRandomEmployee(): Employee {
         email: faker.internet.email(),
         birthDate: faker.date.birthdate(),
         basicSalary: faker.datatype.number(),
-        status: faker.word.noun(),
+        status: faker.datatype.boolean().toString(),
         group: faker.company.companyName(),
         description: faker.date.recent()
     }
